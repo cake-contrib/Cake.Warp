@@ -1,0 +1,14 @@
+{
+  "projectName": "Cake.Warp",
+  "projectOwner": "cake-contrib",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 70,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

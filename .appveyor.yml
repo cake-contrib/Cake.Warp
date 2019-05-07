@@ -1,0 +1,39 @@
+image:
+  - Ubuntu
+#  - Visual Studio 2017
+version: '{build}'
+pull_requests:
+  do_not_increment_build_number: true
+skip_branch_with_pr: true
+configuration: Release
+platform: Any CPU
+
+matrix:
+  fast_finish: true
+
+build: off
+test: off
+deploy: off
+
+build_script:
+- ps: echo "$env:CONFIGURATION"
+- ps: echo "$env:PLATFORM"
+- sh: echo "$PLATFORM"
+- sh: echo "$CONFIGURATION"
+
+
+for:
+
+-
+  matrix:
+    only:
+      - image: Ubuntu
+  environment:
+    GITHUB_PASSWORD:
+    MYGET_API_KEY:
+    GITTER_TOKEN:
+    SLACK_TOKEN:
+    TWITTER_CONSUMER_KEY:
+    TWITTER_ACCESS_TOKEN:
+    NUGET_API_KEY:
+    WYAM_ACCESS_TOKEN:

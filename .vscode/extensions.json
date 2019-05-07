@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "ms-vscode.csharp",
+        "jchannon.csharpextensions",
+        "cake-build.cake-vscode",
+        "editorconfig.editorconfig",
+        "davidanson.vscode-markdownlint"
+    ]
+}

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework Condition="'$(OS)'=='Unix'">netcoreapp2.1</TargetFramework>
-    <TargetFramework Condition="'$(OS)'!='Unix'">netcoreapp2.1;net461</TargetFramework>
+    <TargetFrameworks Condition="'$(OS)'!='Unix'">netcoreapp2.1;net461</TargetFrameworks>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>

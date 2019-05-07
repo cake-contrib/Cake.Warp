@@ -22,7 +22,12 @@ BuildParameters.SetParameters(context: Context,
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context);
+ToolSettings.SetToolSettings(context: Context,
+    dupFinderExcludePattern: new[] {
+        "**/*Tests/**/*.cs",
+        "**/*.Demo/**/*.cs",
+        "**/*.AssemblyInfo.cs"
+    });
 
 // TODO: Add a task to publish Demo project,
 // so we can run integration tests against it.

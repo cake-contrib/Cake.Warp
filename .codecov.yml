@@ -1,12 +1,12 @@
 codecov:
-	ci: # Ignore builds on travis, until it is supported in codecov-exe
-		- !travis-ci
+  ci: # Ignore builds on travis, until it is supported in codecov-exe
+    - !travis-ci
 
 coverage:
-	range: "85...100"
+  range: "85...100"
 
-	status:
-		changes: yes
+  status:
+    changes: yes
 
 comment:
-	require_changes: yes
+  require_changes: yes

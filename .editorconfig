@@ -20,7 +20,7 @@ end_of_line = crlf
 
 [*.{yml,yaml}]
 indent_size = 2
-indent_style = tab
+indent_style = space
 
 # Files that need to be crlf eol to work
 [tasks.json]

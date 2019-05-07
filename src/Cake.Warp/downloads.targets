@@ -1,0 +1,36 @@
+<Project>
+    <PropertyGroup>
+        <WarpVersion>v0.3.0</WarpVersion>
+        <DownloadLocation>$(MSBuildProjectDirectory)/warp</DownloadLocation>
+        <LinuxWarpFileName>linux-warp-packer</LinuxWarpFileName>
+        <MacOSWarpFileName>macos-warp-packer</MacOSWarpFileName>
+        <WindowsWarpFileName>windows-warp-packer.exe</WindowsWarpFileName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- The following is to make sure to include the downloaded files even when they already existed -->
+        <EmbeddedResource Include="warp/*" />
+    </ItemGroup>
+
+    <Target Name="DownloadLinuxWarpBinary" BeforeTargets="ResolveReferences" Condition="!EXISTS('$(DownloadLocation)/$(LinuxWarpFileName)')">
+        <DownloadFile SourceUrl="https://github.com/dgiagio/warp/releases/download/$(WarpVersion)/linux-x64.warp-packer"
+            DestinationFolder="$(DownloadLocation)"
+            DestinationFileName="$(LinuxWarpFileName)">
+            <Output TaskParameter="DownloadedFile" ItemName="EmbeddedResource" />
+        </DownloadFile>
+    </Target>
+    <Target Name="DownloadOSXWarpBinary" BeforeTargets="ResolveReferences" Condition="!EXISTS('$(DownloadLocation)/$(MacOSWarpFileName)')">
+        <DownloadFile SourceUrl="https://github.com/dgiagio/warp/releases/download/$(WarpVersion)/macos-x64.warp-packer"
+            DestinationFolder="$(DownloadLocation)"
+            DestinationFileName="$(MacOSWarpFileName)">
+            <Output TaskParameter="DownloadedFile" ItemName="EmbeddedResource" />
+        </DownloadFile>
+    </Target>
+    <Target Name="DownloadWindowsWarpBinary" BeforeTargets="ResolveReferences" Condition="!EXISTS('$(DownloadLocation)/$(WindowsWarpFileName)')">
+        <DownloadFile SourceUrl="https://github.com/dgiagio/warp/releases/download/$(WarpVersion)/windows-x64.warp-packer.exe"
+            DestinationFolder="$(DownloadLocation)"
+            DestinationFileName="$(WindowsWarpFileName)">
+            <Output TaskParameter="DownloadedFile" ItemName="EmbeddedResource" />
+        </DownloadFile>
+    </Target>
+</Project>

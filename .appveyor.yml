@@ -23,7 +23,7 @@ build_script:
 
 cache:
   - 'tools -> recipe.cake,tools/packages.config'
-  - 'src/Cake.Warp/warp -> src/Cake.Warp/Cake.Warp.csproj'
+  - 'src/Cake.Warp/warp -> recipe.cake'
 
 for:
 

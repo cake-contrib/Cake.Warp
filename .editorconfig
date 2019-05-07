@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{sln,csproj}]
+end_of_line = crlf
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.ps1]
+charset = utf-8-bom
+end_of_line = crlf
+
+[*.{yml,yaml}]
+indent_size = 2
+indent_style = tab
+
+# Files that need to be crlf eol to work
+[tasks.json]
+end_of_line = crlf

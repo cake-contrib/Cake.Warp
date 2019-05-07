@@ -1,0 +1,30 @@
+###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text eol=lf
+
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+*.cs     diff=csharp
+
+*.ps1 text eol=crlf
+*.sh  text eol=lf
+
+*.sln        text eol=crlf
+*.csproj     text eol=crlf
+task.json    text eol=crlf
+
+#
+# Exclude files from exporting
+#
+
+.gitattributes export-ignore
+.gitignore     export-ignore
+
+# Markdown files need special handling for git diff
+*.md text whitespace=-trailing-space

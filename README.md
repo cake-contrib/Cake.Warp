@@ -40,12 +40,6 @@ Cake.Warp follows the [Contributor Covenant](https://www.contributor-covenant.or
 
 Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
-## License
-
-MIT © 2019 Kim J. Nordmo
-
-## Contributing
-
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
@@ -55,3 +49,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## License
+
+MIT © 2019 Kim J. Nordmo

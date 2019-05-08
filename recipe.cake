@@ -18,7 +18,8 @@ BuildParameters.SetParameters(context: Context,
                               repositoryOwner: "cake-contrib",
                               repositoryName: "Cake.Warp",
                               appVeyorAccountName: "cakecontrib",
-                              shouldRunGitVersion: true);
+                              shouldRunGitVersion: true,
+                              shouldExecuteGitLink: false);
 
 BuildParameters.PrintParameters(Context);
 

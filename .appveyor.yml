@@ -9,6 +9,11 @@ configuration: Release
 environment:
   APPVEYOR_YML_DISABLE_PS_LINUX: true
 
+branches:
+  except:
+    - ci/travis
+    - /^dependabot\/.*/
+
 matrix:
   fast_finish: true
 

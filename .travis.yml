@@ -4,7 +4,7 @@ os:
   - linux
   - osx
 mono: latest
-dotnet: latest
+dotnet: 2.1.603
 
 cache:
   directories:

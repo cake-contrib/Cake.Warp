@@ -19,7 +19,7 @@ namespace Cake.Warp.IntegrationTests
             {
                 directory = Path.GetDirectoryName(directory);
             }
-            addinAssemblyDirectory = directory;
+            this.addinAssemblyDirectory = directory;
         }
 
         // See <https://github.com/nunit/docs/wiki/Platform-Attribute> for a partial list of valid platform values
@@ -32,7 +32,7 @@ namespace Cake.Warp.IntegrationTests
         public bool Should_Have_Saved_Correct_Executable_To_Assembly_Path(string runnerName)
         {
             // The file should have been saved to path already in the setup method
-            var expectedPath = Path.Combine(addinAssemblyDirectory, runnerName);
+            var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
 
             return File.Exists(expectedPath);
         }

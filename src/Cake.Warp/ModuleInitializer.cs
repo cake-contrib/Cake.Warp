@@ -1,10 +1,10 @@
-using System;
-using System.IO;
-using Cake.Warp.Common;
-using Resourcer;
-
 namespace Cake.Warp
 {
+    using System;
+    using System.IO;
+    using Cake.Warp.Common;
+    using Resourcer;
+
     /// <summary>
     /// Module class responible for the logic needed
     /// to run when the library is loaded.

@@ -1,3 +1,8 @@
+using System;
+using System.IO;
+using Cake.Warp.Common;
+using Resourcer;
+
 namespace Cake.Warp
 {
     /// <summary>
@@ -18,6 +23,47 @@ namespace Cake.Warp
         public static void Initialize()
         {
             // TODO
+            using (var resourceStream = GetWarpResource())
+            {
+                var assemblyDirectory = AddinConfiguration.Instance.AssemblyDirectoryPath;
+                var warpFileName = "warp-packer";
+                if (AddinConfiguration.Instance.IsWindows)
+                {
+                    // Would prefer to get the file extension preffered by
+                    // system instead of hard-coding this.
+                    // Not found anything related to this.
+                    warpFileName += ".exe";
+                }
+
+                var fullPathToFile = Path.Combine(assemblyDirectory, warpFileName);
+                using (var filestream = File.Create(fullPathToFile))
+                {
+                    // Is there perhaps a better way, than doing this
+                    resourceStream.CopyTo(filestream);
+                }
+
+                AddinConfiguration.Instance.WarpFilePath = fullPathToFile;
+            }
+        }
+
+        private static Stream GetWarpResource()
+        {
+            if (AddinConfiguration.Instance.IsLinux)
+            {
+                return Resource.AsStream("warp.linux-x64.warp-packer");
+            }
+            else if (AddinConfiguration.Instance.IsMacOS)
+            {
+                return Resource.AsStream("warp.macos-x64.warp-packer");
+            }
+            else if (AddinConfiguration.Instance.IsWindows)
+            {
+                return Resource.AsStream("warp.windows-x64.warp-packer.exe");
+            }
+            else
+            {
+                throw new PlatformNotSupportedException("The resource file was not found for the current platform");
+            }
         }
     }
 }

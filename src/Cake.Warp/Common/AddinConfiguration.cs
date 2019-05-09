@@ -1,6 +1,8 @@
 namespace Cake.Warp.Common
 {
     using System;
+    using System.IO;
+    using System.Reflection;
     using System.Runtime.InteropServices;
 
     internal sealed class AddinConfiguration
@@ -9,6 +11,12 @@ namespace Cake.Warp.Common
 
         private AddinConfiguration()
         {
+            AssemblyDirectoryPath = Assembly.GetExecutingAssembly().Location;
+            var attr = File.GetAttributes(AssemblyDirectoryPath);
+            if ((attr & FileAttributes.Directory) != FileAttributes.Directory)
+            {
+                AssemblyDirectoryPath = Path.GetDirectoryName(AssemblyDirectoryPath);
+            }
         }
 
         /// <summary>
@@ -28,9 +36,9 @@ namespace Cake.Warp.Common
         }
 
         /// <summary>
-        ///   Gets the current path to the executing assembly.
+        ///   Gets the current path to the executing assembly directory.
         /// </summary>
-        public string AssemblyPath { get; }
+        public string AssemblyDirectoryPath { get; }
 
         /// <summary>
         ///   Gets or sets the full file path to the warp binary file.

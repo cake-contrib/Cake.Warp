@@ -37,6 +37,8 @@ PRs accepted.
 
 Cake.Warp follows the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct) Code of Conduct.
 
+Commits to the repository is required to be signed with a valid GPG key with the contributors email addresses.
+
 Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):

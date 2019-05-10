@@ -1,6 +1,7 @@
 namespace Cake.Warp
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using Cake.Warp.Common;
     using Resourcer;
@@ -41,10 +42,17 @@ namespace Cake.Warp
             }
 
             using (var resourceStream = GetWarpResource())
-            using (var filestream = File.Create(fullPathToFile))
+                using (var filestream = File.Create(fullPathToFile))
+                {
+                    // Is there perhaps a better way, than doing this
+                    resourceStream.CopyTo(filestream);
+                }
+
+            if (!AddinConfiguration.Instance.IsWindows)
             {
-                // Is there perhaps a better way, than doing this
-                resourceStream.CopyTo(filestream);
+                // This is required, otherwise we won't be able to run warp-packer
+                var process = Process.Start("chmod", $"755 \"{fullPathToFile}\"");
+                process.WaitForExit();
             }
         }
 

@@ -1,6 +1,7 @@
 namespace Cake.Warp.IntegrationTests
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using NUnit.Framework;
 
@@ -35,6 +36,28 @@ namespace Cake.Warp.IntegrationTests
             var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
 
             return File.Exists(expectedPath);
+        }
+
+        [Test]
+        public void Should_Be_Able_To_Launch_Warp_Binary_File()
+        {
+            var filePath = Path.Combine(this.addinAssemblyDirectory,
+                Environment.OSVersion.Platform == PlatformID.Win32NT
+                    ? "warp-packer.exe"
+                    : "warp-packer");
+            var processInfo = new ProcessStartInfo
+            {
+                CreateNoWindow = true,
+                FileName = filePath,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+            };
+
+            // This will throw an exception if the file can't be run
+            var proc = Process.Start(processInfo);
+
+            proc.WaitForExit();
         }
     }
 }

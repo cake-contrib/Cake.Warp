@@ -25,7 +25,7 @@ pull_request_rules:
   - name: "Merge Pull Request when CI passes, and no outstanding issues"
     conditions:
       - "status-success=continuous-integration/appveyor/pr"
-      - "status-success=continuous-integration/travis-ci"
+      - "status-success=continuous-integration/travis-ci/pr"
       - "#approved-reviews-by>=1"
       - "#review-requested=0"
       - "#changes-requested-reviews-by=0"

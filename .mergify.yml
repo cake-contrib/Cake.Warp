@@ -22,7 +22,7 @@ pull_request_rules:
         remove: ["Build"] # In case dependabot was the one that opened this
   # Although we can not have mergify auto-merge PR's (because we require GPG signature)
   # We still want this rule, in case mergify suddenly signs commits.
-  - name: "Merge Pull Request when CI passes, and no outstanding issues"
+  - name: "Comment on Pull Request when CI passes, and no outstanding issues"
     conditions:
       - "status-success=continuous-integration/appveyor/pr"
       - "status-success=continuous-integration/travis-ci/pr"

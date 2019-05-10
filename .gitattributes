@@ -17,7 +17,7 @@
 
 *.sln        text eol=crlf
 *.csproj     text eol=crlf
-task.json    text eol=crlf
+tasks.json   text eol=crlf
 
 #
 # Exclude files from exporting

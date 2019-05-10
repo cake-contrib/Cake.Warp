@@ -33,6 +33,7 @@
                 "watch",
                 "--project",
                 "${workspaceFolder}/src/Cake.Warp.Tests/Cake.Warp.Tests.csproj",
+                "--verbose",
                 "test"
             ],
             "problemMatcher": "$tsc"

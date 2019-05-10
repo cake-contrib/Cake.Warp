@@ -34,7 +34,7 @@ who spend their free time creating things the rest the community can use.
 
 Don't have time to contribute? No worries, here are some other ways to show your support for Cake.Warp:
 
-- star the [project](https://github.com/AdmiringWorm/Cake.Warp)
+- star the [project](https://github.com/cake-contrib/Cake.Warp)
 - tweet your support for Cake.Warp
 
 ## Issues

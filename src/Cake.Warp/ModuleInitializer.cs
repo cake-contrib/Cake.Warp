@@ -22,27 +22,29 @@ namespace Cake.Warp
         /// </notes>
         public static void Initialize()
         {
-            // TODO
-            using (var resourceStream = GetWarpResource())
+            var assemblyDirectory = AddinConfiguration.Instance.AssemblyDirectoryPath;
+            var warpFileName = "warp-packer";
+            if (AddinConfiguration.Instance.IsWindows)
             {
-                var assemblyDirectory = AddinConfiguration.Instance.AssemblyDirectoryPath;
-                var warpFileName = "warp-packer";
-                if (AddinConfiguration.Instance.IsWindows)
-                {
-                    // Would prefer to get the file extension preffered by
-                    // system instead of hard-coding this.
-                    // Not found anything related to this.
-                    warpFileName += ".exe";
-                }
+                // Would prefer to get the file extension preffered by
+                // system instead of hard-coding this.
+                // Not found anything related to this.
+                warpFileName += ".exe";
+            }
 
-                var fullPathToFile = Path.Combine(assemblyDirectory, warpFileName);
-                using (var filestream = File.Create(fullPathToFile))
-                {
-                    // Is there perhaps a better way, than doing this
-                    resourceStream.CopyTo(filestream);
-                }
+            var fullPathToFile = Path.Combine(assemblyDirectory, warpFileName);
+            AddinConfiguration.Instance.WarpFilePath = fullPathToFile;
 
-                AddinConfiguration.Instance.WarpFilePath = fullPathToFile;
+            if (File.Exists(fullPathToFile))
+            {
+                return;
+            }
+
+            using (var resourceStream = GetWarpResource())
+            using (var filestream = File.Create(fullPathToFile))
+            {
+                // Is there perhaps a better way, than doing this
+                resourceStream.CopyTo(filestream);
             }
         }
 

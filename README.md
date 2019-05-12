@@ -2,6 +2,11 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+![GitHub](https://img.shields.io/github/license/cake-contrib/Cake.Warp.svg?style=flat-square)
+[![AppVeyor](https://img.shields.io/appveyor/ci/cakecontrib/cake-warp.svg?logo=AppVeyor&style=flat-square)](https://ci.appveyor.com/project/cakecontrib/cake-warp)
+[![Travis (.org)](https://img.shields.io/travis/cake-contrib/Cake.Warp.svg?logo=travis&style=flat-square)](https://travis-ci.org/cake-contrib/Cake.Warp)
+[![Codecov](https://img.shields.io/codecov/c/github/cake-contrib/Cake.Warp.svg?logo=codecov&style=flat-square)]()
+[![Nuget](https://img.shields.io/nuget/v/Cake.Warp.svg?logo=nuget&style=flat-square)](https://nuget.org/packages/Cake.Warp)
 
 > Cake addin for creating self-contained single binary applications using [warp](https://github.com/dgiagio/warp)
 

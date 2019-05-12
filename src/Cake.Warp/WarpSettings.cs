@@ -8,6 +8,11 @@ namespace Cake.Warp
     /// <summary>
     /// Contains the settings used by <see cref="WarpRunner" />.
     /// </summary>
+    /// <remarks>
+    /// All properties are required
+    /// (except <see cref="Platform" /> as this as just an alias
+    /// for <see cref="Architecture" />).
+    /// </remarks>
     public sealed class WarpSettings : ToolSettings
     {
         /// <summary>

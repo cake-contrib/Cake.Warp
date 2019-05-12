@@ -1,9 +1,9 @@
-using System;
-using System.IO;
-using NUnit.Framework;
-
 namespace Cake.Warp.Tests
 {
+    using System;
+    using System.IO;
+    using NUnit.Framework;
+
     public class WarpSettingsTests
     {
 

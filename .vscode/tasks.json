@@ -40,7 +40,6 @@
             "label": "watch",
             "command": "dotnet",
             "type": "process",
-            "dependsOn":["build"],
             "args": [
                 "watch",
                 "--project",

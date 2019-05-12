@@ -12,6 +12,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
           <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" PrivateAssets="All"/>
         <PackageReference Include="ModuleInit.Fody" Version="2.0.0" PrivateAssets="All" />
         <PackageReference Include="Resourcer.Fody" Version="1.7.3" />
         <PackageReference Include="stylecop.analyzers" Version="1.1.118">

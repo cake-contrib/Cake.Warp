@@ -3,10 +3,16 @@ namespace Cake.Warp
     using Cake.Core.IO;
     using Cake.Core.Tooling;
     using Cake.Warp.Common;
+    using JetBrains.Annotations;
 
     /// <summary>
     /// Contains the settings used by <see cref="WarpRunner" />.
     /// </summary>
+    /// <remarks>
+    /// All properties are required
+    /// (except <see cref="Platform" /> as this as just an alias
+    /// for <see cref="Architecture" />).
+    /// </remarks>
     public sealed class WarpSettings : ToolSettings
     {
         /// <summary>
@@ -32,6 +38,7 @@ namespace Cake.Warp
         /// <remarks>
         /// This is just an alias for <see cref="Architecture" />.
         /// </remarks>
+        [PublicAPI]
         public WarpPlatforms Platform
         {
             get => this.Architecture;
@@ -43,7 +50,7 @@ namespace Cake.Warp
         /// the created application is being executed by a user.
         /// </summary>
         /// <remarks>
-        /// This should only be the filaname including the file extension.
+        /// This should only be the filename including the file extension.
         /// </remarks>
         public string ExecutableName { get; set; }
 

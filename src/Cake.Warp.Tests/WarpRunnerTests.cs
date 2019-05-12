@@ -2,6 +2,7 @@ namespace Cake.Warp.Tests
 {
     using System;
     using Cake.Core;
+    using Cake.Core.IO;
     using Cake.Testing;
     using Cake.Warp.Common;
     using NUnit.Framework;
@@ -127,8 +128,9 @@ namespace Cake.Warp.Tests
             Assume.That(fixture.Settings.InputDirectory, Is.Not.Null);
 
             var result = fixture.Run();
+            var expectedDirectory = new FilePath(Environment.CurrentDirectory);
 
-            Assert.That(result.Args, Does.Contain($"--input_dir \"{Environment.CurrentDirectory}\""));
+            Assert.That(result.Args, Does.Contain($"--input_dir \"{expectedDirectory}\""));
         }
 
         [Test]
@@ -140,7 +142,7 @@ namespace Cake.Warp.Tests
 
             var result = fixture.Run();
 
-            Assert.That(result.Args, Does.Contain($"--exec \"Cake.Warp.Demo.exe\""));
+            Assert.That(result.Args, Does.Contain("--exec \"Cake.Warp.Demo.exe\""));
         }
 
         [Test]
@@ -152,11 +154,11 @@ namespace Cake.Warp.Tests
 
             var result = fixture.Run();
 
-            Assert.That(result.Args, Does.Contain($"--output \"cake-warp-demo\""));
+            Assert.That(result.Args, Does.Contain("--output \"cake-warp-demo\""));
         }
 
         [Test]
-        public void Should_Throw_ArgumentNullExcetion_When_InputDir_Is_Null()
+        public void Should_Throw_ArgumentNullException_When_InputDir_Is_Null()
         {
             void FixtureResult()
             {
@@ -174,7 +176,7 @@ namespace Cake.Warp.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("            ")]
-        public void Should_Throw_ArgumentNullExcetion_When_ExecutableName_Is_Null_Or_Empty(string value)
+        public void Should_Throw_ArgumentNullException_When_ExecutableName_Is_Null_Or_Empty(string value)
         {
             void FixtureResult()
             {
@@ -190,7 +192,7 @@ namespace Cake.Warp.Tests
         }
 
         [Test]
-        public void Should_Throw_ArgumentNullExcetion_When_OutputFilePath_Is_Null()
+        public void Should_Throw_ArgumentNullException_When_OutputFilePath_Is_Null()
         {
             void FixtureResult()
             {

@@ -1,6 +1,5 @@
 namespace Cake.Warp.Tests
 {
-    using System;
     using Cake.Testing;
     using Cake.Testing.Fixtures;
 

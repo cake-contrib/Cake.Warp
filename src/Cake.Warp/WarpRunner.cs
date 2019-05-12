@@ -112,7 +112,7 @@ namespace Cake.Warp
                 throw new ArgumentNullException(nameof(settings.OutputFilePath));
             }
 
-            // We could handle wether the directory/files exist,
+            // We could handle whether the directory/files exist,
             // we will let warp packer handle this for now.
         }
     }

@@ -1,4 +1,5 @@
 # Cake.Warp
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
@@ -16,13 +17,33 @@
 
 You may start using Cake.Warp as soon as you have imported the addin into you cake build script with the following:
 
-```
+```cs
 #addin nuget:?package=Cake.Warp&version=0.1.0
 ```
 
 ## Usage
 
-```
+The most basic use of Cake.Warp is by first creating a standalone
+executable through dotnet publish, then calling Warp to create the self-contained binary.
+
+```cs
+#addin nuget:?package=Cake.Warp&version=0.1.0
+
+Task("Create-Warp-Binary")
+    .Does(() =>
+{
+    DotNetCorePublish("./src/Cake.Warp.Demo", new DotNetCorePublishSettings {
+        Framework         = "netcoreapp2.0",
+        RuntimeIdentifier = "linux-x64",
+        Configuration     = "Release",
+        OutputDirectory   = "./artifacts/output"
+    });
+    Warp("./artifacts/output",
+         "Cake.Warp.Demo", // Must include .exe if creating for windows
+         "./artifacts/cake-warp-demo",
+         WarpPlatforms.LinuxX64
+    );
+});
 ```
 
 ## Maintainers

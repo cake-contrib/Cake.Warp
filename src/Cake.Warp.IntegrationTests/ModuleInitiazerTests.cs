@@ -14,7 +14,7 @@ namespace Cake.Warp.IntegrationTests
         [SetUp]
         public void SetAddinAssemblyDirectory()
         {
-            string directory = typeof(Cake.Warp.ModuleInitializer).Assembly.Location;
+            string directory = typeof(ModuleInitializer).Assembly.Location;
             var attr = File.GetAttributes(directory);
             if ((attr & FileAttributes.Directory) != FileAttributes.Directory)
             {
@@ -59,6 +59,7 @@ namespace Cake.Warp.IntegrationTests
             // This will throw an exception if the file can't be run
             var proc = Process.Start(processInfo);
 
+            Assume.That(proc, Is.Not.Null);
             proc.WaitForExit();
         }
     }

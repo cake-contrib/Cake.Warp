@@ -1,6 +1,5 @@
 namespace Cake.Warp.Common
 {
-    using System;
     using System.IO;
     using System.Reflection;
     using System.Runtime.InteropServices;
@@ -27,17 +26,7 @@ namespace Cake.Warp.Common
         ///   Gets the singleton instance of the addin configuration class.
         /// </summary>
         public static AddinConfiguration Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new AddinConfiguration();
-                }
-
-                return instance;
-            }
-        }
+            => instance ?? (instance = new AddinConfiguration());
 
         /// <summary>
         ///   Gets the current path to the executing assembly directory.

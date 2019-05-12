@@ -4,10 +4,11 @@ namespace Cake.Warp
     using System.Diagnostics;
     using System.IO;
     using Cake.Warp.Common;
+    using JetBrains.Annotations;
     using Resourcer;
 
     /// <summary>
-    /// Module class responible for the logic needed
+    /// Module class responsible for the logic needed
     /// to run when the library is loaded.
     /// </summary>
     public static class ModuleInitializer
@@ -21,13 +22,14 @@ namespace Cake.Warp
         ///   called manually. It should only be called
         ///   using the existing IL weaving.
         /// </notes>
+        [UsedImplicitly]
         public static void Initialize()
         {
             var assemblyDirectory = AddinConfiguration.Instance.AssemblyDirectoryPath;
             var warpFileName = "warp-packer";
             if (AddinConfiguration.Instance.IsWindows)
             {
-                // Would prefer to get the file extension preffered by
+                // Would prefer to get the file extension preferred by
                 // system instead of hard-coding this.
                 // Not found anything related to this.
                 warpFileName += ".exe";
@@ -42,16 +44,21 @@ namespace Cake.Warp
             }
 
             using (var resourceStream = GetWarpResource())
-                using (var filestream = File.Create(fullPathToFile))
+                using (var fileStream = File.Create(fullPathToFile))
                 {
                     // Is there perhaps a better way, than doing this
-                    resourceStream.CopyTo(filestream);
+                    resourceStream.CopyTo(fileStream);
                 }
 
             if (!AddinConfiguration.Instance.IsWindows)
             {
                 // This is required, otherwise we won't be able to run warp-packer
                 var process = Process.Start("chmod", $"755 \"{fullPathToFile}\"");
+                if (process == null)
+                {
+                    throw new NullReferenceException("Unable to run chmod on warp packer");
+                }
+
                 process.WaitForExit();
             }
         }
@@ -64,6 +71,7 @@ namespace Cake.Warp
             }
             else if (AddinConfiguration.Instance.IsMacOS)
             {
+                // ReSharper disable once StringLiteralTypo
                 return Resource.AsStream("warp.macos-x64.warp-packer");
             }
             else if (AddinConfiguration.Instance.IsWindows)

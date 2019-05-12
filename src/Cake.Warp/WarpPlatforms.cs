@@ -14,7 +14,7 @@ namespace Cake.Warp
         /// <summary>
         /// Create the application as a Mac OSX x64 executable.
         /// /// </summary>
-        MacOSX64,
+        MacOsx64,
 
         /// <summary>
         /// Create the application as a Windows x64 executable.

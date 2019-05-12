@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 
 namespace Cake.Warp.Demo
 {
-    class Program
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-        static void Main(string[] args)
+        internal static void Main()
         {
             Console.WriteLine("I should work from a single binary!");
         }

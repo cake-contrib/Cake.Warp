@@ -154,5 +154,55 @@ namespace Cake.Warp.Tests
 
             Assert.That(result.Args, Does.Contain($"--output \"cake-warp-demo\""));
         }
+
+        [Test]
+        public void Should_Throw_ArgumentNullExcetion_When_InputDir_Is_Null()
+        {
+            void FixtureResult()
+            {
+                var fixture = new WarpRunnerFixture();
+                fixture.GivenExpectedSettings();
+                fixture.Settings.InputDirectory = null;
+
+                fixture.Run();
+            }
+
+            Assert.That(FixtureResult, Throws.ArgumentNullException
+                .With.Message.Contains(nameof(WarpSettings.InputDirectory)));
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("            ")]
+        public void Should_Throw_ArgumentNullExcetion_When_ExecutableName_Is_Null_Or_Empty(string value)
+        {
+            void FixtureResult()
+            {
+                var fixture = new WarpRunnerFixture();
+                fixture.GivenExpectedSettings();
+                fixture.Settings.ExecutableName = value;
+
+                fixture.Run();
+            }
+
+            Assert.That(FixtureResult, Throws.ArgumentNullException
+                .With.Message.Contains(nameof(WarpSettings.ExecutableName)));
+        }
+
+        [Test]
+        public void Should_Throw_ArgumentNullExcetion_When_OutputFilePath_Is_Null()
+        {
+            void FixtureResult()
+            {
+                var fixture = new WarpRunnerFixture();
+                fixture.GivenExpectedSettings();
+                fixture.Settings.OutputFilePath = null;
+
+                fixture.Run();
+            }
+
+            Assert.That(FixtureResult, Throws.ArgumentNullException
+                .With.Message.Contains(nameof(WarpSettings.OutputFilePath)));
+        }
     }
 }

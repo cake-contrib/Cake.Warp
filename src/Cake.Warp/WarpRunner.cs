@@ -39,7 +39,7 @@ namespace Cake.Warp
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            // TODO: Validate arguments before trying to create them.
+            ValidateSettingsProperties(settings);
             this.Run(settings, GetArguments(settings));
         }
 
@@ -93,6 +93,27 @@ namespace Cake.Warp
             builder.AppendSwitchQuoted("--output", settings.OutputFilePath.FullPath);
 
             return builder;
+        }
+
+        private static void ValidateSettingsProperties(WarpSettings settings)
+        {
+            if (settings.InputDirectory == null)
+            {
+                throw new ArgumentNullException(nameof(settings.InputDirectory));
+            }
+
+            if (string.IsNullOrWhiteSpace(settings.ExecutableName))
+            {
+                throw new ArgumentNullException(nameof(settings.ExecutableName));
+            }
+
+            if (settings.OutputFilePath == null)
+            {
+                throw new ArgumentNullException(nameof(settings.OutputFilePath));
+            }
+
+            // We could handle wether the directory/files exist,
+            // we will let warp packer handle this for now.
         }
     }
 }

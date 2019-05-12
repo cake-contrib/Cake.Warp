@@ -21,7 +21,8 @@ BuildParameters.SetParameters(context: Context,
                               shouldRunGitVersion: true,
                               shouldExecuteGitLink: false,
                               shouldRunCodecov: true,
-                              shouldDeployGraphDocumentation: false);
+                              shouldDeployGraphDocumentation: false,
+                              shouldRunDotNetCorePack: true);
 
 BuildParameters.PrintParameters(Context);
 

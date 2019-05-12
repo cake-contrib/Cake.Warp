@@ -45,6 +45,8 @@ namespace Cake.Warp.IntegrationTests
                 Environment.OSVersion.Platform == PlatformID.Win32NT
                     ? "warp-packer.exe"
                     : "warp-packer");
+
+            Assume.That(filePath, Does.Exist);
             var processInfo = new ProcessStartInfo
             {
                 CreateNoWindow = true,

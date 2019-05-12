@@ -2,7 +2,7 @@ namespace Cake.Warp
 {
     using Cake.Core.IO;
     using Cake.Core.Tooling;
-    // using Cake.Warp.Common;
+    using Cake.Warp.Common;
 
     /// <summary>
     /// Contains the settings used by <see cref="WarpRunner" />.
@@ -16,8 +16,7 @@ namespace Cake.Warp
         /// <remarks>ToolPath can be overridden if desired.</remarks>
         public WarpSettings()
         {
-            // We can not enable this until PR #11 is merged
-            // this.ToolPath = AddinConfiguration.Instance.WarpFilePath;
+            this.ToolPath = AddinConfiguration.Instance.WarpFilePath;
         }
 
         /// <summary>

@@ -23,6 +23,7 @@ issue-labels-include:
 
 issue-labels-exclude:
   - Build
+  - Internal / Refactoring
 issue-labels-alias:
   - name:    Documentation
     header:  Documentation

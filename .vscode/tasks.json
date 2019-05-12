@@ -2,12 +2,23 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "restore",
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
+                "restore",
                 "${workspaceFolder}/src/Cake.Warp.sln"
+            ]
+        },
+        {
+            "label": "build",
+            "command": "dotnet",
+            "dependsOn":["restore"],
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/Cake.Warp.sln",
+                "--no-restore"
             ],
             "problemMatcher": "$tsc",
             "group": {
@@ -29,6 +40,7 @@
             "label": "watch",
             "command": "dotnet",
             "type": "process",
+            "dependsOn":["build"],
             "args": [
                 "watch",
                 "--project",

@@ -15,8 +15,8 @@ namespace Cake.Warp
     /// to include the following in your cake script.
     /// </para>
     /// <code>
-    /// #addin nuget:?package=Cake.Warp&version=0.1.0
-    /// /// </code>
+    /// #addin nuget:?package=Cake.Warp&amp;version=0.1.0
+    /// </code>
     /// </summary>
     [PublicAPI]
     [CakeAliasCategory("Compilation")]
@@ -49,7 +49,7 @@ namespace Cake.Warp
         /// This example shows a basic call to create the packed binary,
         /// by first calling dotnet publish to create the program.
         /// <code>
-        /// #addin nuget:?package=Cake.Warp&version=0.1.0
+        /// #addin nuget:?package=Cake.Warp&amp;version=0.1.0
         ///
         /// Task("Create-Warp-Binary")
         ///     .Does(() =>
@@ -88,16 +88,17 @@ namespace Cake.Warp
 
         /// <summary>
         /// Runs the warp packer binary with the specified
-        /// <paramred name="settings" />.
+        /// <paramref name="settings" />.
+        /// </summary>
+        /// <param name="context">The cake context</param>
         /// <param name="settings">
         /// The settings to use when creating the packed binary file.
         /// </param>
-        /// </summary>
         /// <example>
         /// This example shows a basic call to create the packed binary,
         /// by first calling dotnet publish to create the program.
         /// <code>
-        /// #addin nuget:?package=Cake.Warp&version=0.1.0
+        /// #addin nuget:?package=Cake.Warp&amp;version=0.1.0
         ///
         /// Task("Create-Warp-Binary")
         ///     .Does(() =>
@@ -112,7 +113,7 @@ namespace Cake.Warp
         ///         InputDirectory = "./artifacts/output",
         ///         ExecutableName = "Cake.Warp.Demo.exe,
         ///         OutputFilePath = "./artifacts/cake-warp-demo",
-        ///         Architecture   = WarpPlatform.WindowsX64
+        ///         Architecture   = WarpPlatform.WindowsX64"
         ///     });
         /// });
         /// </code>

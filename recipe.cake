@@ -20,7 +20,8 @@ BuildParameters.SetParameters(context: Context,
                               appVeyorAccountName: "cakecontrib",
                               shouldRunGitVersion: true,
                               shouldExecuteGitLink: false,
-                              shouldRunCodecov: true);
+                              shouldRunCodecov: true,
+                              shouldDeployGraphDocumentation: false);
 
 BuildParameters.PrintParameters(Context);
 

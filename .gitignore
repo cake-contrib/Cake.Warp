@@ -49,8 +49,7 @@ ehthumbs_vista.db
 docs/input/tasks/*
 
 # Wyam related
-docs/config.wyam.dll
-docs/config.wyam.hash
+config.wyam.*
 
 
 # Project specific ignore list

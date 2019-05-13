@@ -25,7 +25,6 @@ BuildParameters.SetParameters(context: Context,
                               shouldRunDotNetCorePack: true,
                               shouldDownloadMilestoneReleaseNotes: true,
                               shouldDownloadFullReleaseNotes: true,
-                              milestoneReleaseNotesFilePath: "./BuildArtifacts/MILESTONE.md",
                               fullReleaseNotesFilePath: "./CHANGELOG.md");
 
 BuildParameters.PrintParameters(Context);

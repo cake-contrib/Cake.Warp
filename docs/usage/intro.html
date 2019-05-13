@@ -1,21 +1,19 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="description" />
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Warp/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Warp/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Warp - Cake.Warp</title>
+        <title>Cake.Warp - Introduction</title>
         <link href="/Cake.Warp/assets/css/highlight.css" rel="stylesheet">
-        <link href="/Cake.Warp/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="/Cake.Warp/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
-        <link href="/Cake.Warp/assets/css/theme/theme.css" rel="stylesheet" />
+        <link href="/Cake.Warp/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/Cake.Warp/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/Cake.Warp/assets/css/theme/theme.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.Warp/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/Cake.Warp/assets/css/override.css" rel="stylesheet" />
+        <link href="/Cake.Warp/assets/css/override.css" rel="stylesheet">
         <script src="/Cake.Warp/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.Warp/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.Warp/assets/js/app.min.js"></script>         
@@ -31,7 +29,7 @@
 
         
     </head>
-    <body class="hold-transition wyam layout-boxed layout-top-nav ">    
+    <body class="hold-transition wyam layout-boxed  ">    
         <div class="top-banner"></div>
         <div class="wrapper with-container">
             <!-- Header -->
@@ -43,6 +41,10 @@
                          
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
                                         
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -54,7 +56,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
-                                    <li><a href="/Cake.Warp/docs">Documentation</a></li>
+                                    <li class="active"><a href="/Cake.Warp/docs">Documentation</a></li>
         <li><a href="/Cake.Warp/api">API</a></li>
  
                         </ul>       
@@ -66,11 +68,13 @@
             </header>
             
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar hidden">
+            <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/cake-contrib/Cake.Warp/tree/develop/docs/input/index.cshtml"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
-    <div id="infobar-headings"></div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.Warp/tree/develop/docs/input/docs/usage/intro.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+    <div id="infobar-headings"><h6>On This Page</h6><p><a href="#getting-started">Getting Started</a></p>
+<hr class="infobar-hidden">
+</div>
 
                 </section>
                 <section class="sidebar">    
@@ -79,6 +83,26 @@
 
                     <ul class="sidebar-menu">
                         
+
+                <li class="treeview active">
+                    <a href="/Cake.Warp/docs/usage">Usage</a> <a href="#" class="expand"></a>
+                    <ul class="treeview-menu">
+                        
+                <li class="selected"><a href="/Cake.Warp/docs/usage/intro">Introduction</a></li>
+                <li><a href="/Cake.Warp/docs/usage/contributing">Contributing</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="/Cake.Warp/docs/building">Building</a> <a href="#" class="expand"></a>
+                    <ul class="treeview-menu">
+                        
+                <li><a href="/Cake.Warp/docs/building/windows">Building on Windows</a></li>
+                <li><a href="/Cake.Warp/docs/building/linux">Building on Linux</a></li>
+                <li><a href="/Cake.Warp/docs/building/macos">Building on OSX</a></li>
+
+                    </ul>
+                </li>
 
                     </ul>
                             
@@ -92,38 +116,21 @@
 
 
 		<section class="content-header">
-			<h1>Cake.Warp</h1>
+			<h1>Introduction</h1>
 		</section>
 	<section class="content">
-		
-<div class="container-fluid">
-	<h1>What is it?</h1>
-    <p>
-        Cake.Warp is an addin for the Cake Build script adding support for creating stand-alone platform specific
-        binaries on Linux, MAC OSX, and Windows.
-    </p>
+		<h1 id="getting-started">Getting Started</h1>
+<p>This addin is designed to be used inside of cake scripts. To start using it, first you must add a cake <a href="http://cakebuild.net/docs/fundamentals/preprocessor-directives">preprocessor directive</a> to your script as below.</p>
+<pre><code class="language-cs">// latest version 
+#addin "Cake.Warp"
 
-    <h2>Where to get it</h2>
-    <p>
-        Officially published versions are available on
-        <a href="https://www.nuget.org/packages/Cake.Warp/" target="_blank">
-            NuGet
-        </a>.
-        While development versions are made available using the following nuget end point:
-        <a href="https://ci.appveyor.com/nuget/cake-warp">
-            https://ci.appveyor.com/nuget/cake-warp
-        </a>
-        Every build produces nuget packages on this feed, be it official builds,
-        Pull Requests, or anything between. As such, it is very important to
-        pin the version used in your build script.
-    </p>
+// or
+#addin "nuget?package=Cake.Warp"
 
-    <h3>Cake support</h3>
-    <p>
-        This addin targets .NET Standard 2.0 framework and .NET 4.6.1,  which
-        allows you to use the addin with either Cake, Cake.CoreCLR or Cake.Tool.
-    </p>
-</div>
+// for a specific version, use ?version=
+#addin "Cake.Warp?version=0.3.0"
+</code></pre>
+<p>When the cake script is run, this will download the latest version of the <code>Cake.Warp</code> nuget package and will now be available to use inside of the script.</p>
 
 	</section>
                 
@@ -136,7 +143,7 @@
         </div>
         <div class="wrapper bottom-wrapper">
             <footer class="bottom-footer">
-                Copyright &copy; 2017-2019 <a href="https://github.com/AdmiringWorm" target="_blank">Kim J. Nordmo</a>
+                Copyright © 2017-2019 <a href="https://github.com/AdmiringWorm" target="_blank">Kim J. Nordmo</a>
 
             </footer>
         </div>
@@ -261,5 +268,5 @@
                 }, 500);
             });
         </script>
-    </body>
-</html>
+    
+</body></html>

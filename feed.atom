@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>https://cake-contrib.github.io/Cake.Warp</id>
+	<title>Cake.Warp</title>
+	<link rel="self" href="https://cake-contrib.github.io/Cake.Warp" />
+	<rights>2019</rights>
+	<updated>2019-05-13T14:54:14Z</updated>
+</feed>

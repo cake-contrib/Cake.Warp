@@ -22,9 +22,14 @@ BuildParameters.SetParameters(context: Context,
                               shouldExecuteGitLink: false,
                               shouldRunCodecov: true,
                               shouldDeployGraphDocumentation: false,
-                              shouldRunDotNetCorePack: true);
+                              shouldRunDotNetCorePack: true,
+                              shouldDownloadMilestoneReleaseNotes: true,
+                              shouldDownloadFullReleaseNotes: true,
+                              milestoneReleaseNotesFilePath: "./BuildArtifacts/MILESTONE.md",
+                              fullReleaseNotesFilePath: "./CHANGELOG.md");
 
 BuildParameters.PrintParameters(Context);
+BuildParameters.Tasks.ExportReleaseNotesTask.IsDependentOn("Clean");
 
 ToolSettings.SetToolSettings(context: Context,
     dupFinderExcludePattern: new[] {

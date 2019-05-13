@@ -3,7 +3,7 @@ create:
   footer-heading: Where to get it
   footer-content: >
     You can download this release from
-    [nuget](https://nuget.org/packages/Cake.Warp/{milestone},
+    [nuget](https://nuget.org/packages/Cake.Warp/{milestone}),
     or you can just reference it in a cake build script
     with `#addin nuget:?package?Cake.Warp&version={milestone}`.
   footer-includes-milestone: true
@@ -12,7 +12,7 @@ export:
   include-created-date-in-title: true
   created-date-string-format: yyyy-MM-dd
   perform-regex-removal: true
-  regex-text: '### Where to get it(\r?\n)*You can .*\)'
+  regex-text: '[\r\n]*### Where to get it[\r\n]*You can .*`\.[\r\n]*'
   multiline-regex: true
 issue-labels-include:
   - Breaking Change

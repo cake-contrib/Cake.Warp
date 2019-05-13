@@ -20,7 +20,7 @@
         <Title>$(AssemblyTitle)</Title>
         <Authors>Kim J. Nordmo;cake-contrib</Authors>
         <Copyright>Copyright © $(FullYear) - $(Authors)</Copyright>
-        <Description>Cake addin for creating self-contained single binary applications using [warp](https://github.com/dgiagio/warp).
+        <Description>Cake addin for creating self-contained single binary applications using warp (https://github.com/dgiagio/warp).
         </Description>
         <IncludeContentInPack>false</IncludeContentInPack>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@49c3b71def749b86416d773f1ead0c0da2d590ea/png/cake-contrib-medium.png</PackageIconUrl>
@@ -29,8 +29,7 @@
         <PackageTags>cake;addin;warp;self-contained</PackageTags>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/cake-contrib/Cake.Warp.git</RepositoryUrl>
-        <MilestoneReleasePath>$(MSBuildProjectDirectory)/../../BuildArtifacts/MILESTONE.md</MilestoneReleasePath>
-        <PackageReleaseNotes Condition="EXISTS('$(MilestoneReleasePath)')">$([System.IO.File]::ReadAllText("$(MilestoneReleasePath)"))</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Warp/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.28.0" PrivateAssets="All" />

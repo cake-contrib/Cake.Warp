@@ -27,7 +27,7 @@ namespace Cake.Warp
         /// <paramref name="inputDirectory" />, and outputs the
         /// resulting packed binary to <paramref name="outputFilePath" />.
         /// </summary>
-        /// <param name="context">The cake context</param>
+        /// <param name="context">The cake context.</param>
         /// <param name="inputDirectory">
         /// The directory that should be packed into the resulting binary
         /// file.
@@ -74,15 +74,14 @@ namespace Cake.Warp
             DirectoryPath inputDirectory,
             string executableName,
             FilePath outputFilePath,
-            WarpPlatforms architecture
-        )
+            WarpPlatforms architecture)
         {
             Warp(context, new WarpSettings
             {
                 InputDirectory = inputDirectory,
                 ExecutableName = executableName,
                 OutputFilePath = outputFilePath,
-                Architecture   = architecture
+                Architecture = architecture,
             });
         }
 
@@ -90,7 +89,7 @@ namespace Cake.Warp
         /// Runs the warp packer binary with the specified
         /// <paramref name="settings" />.
         /// </summary>
-        /// <param name="context">The cake context</param>
+        /// <param name="context">The cake context.</param>
         /// <param name="settings">
         /// The settings to use when creating the packed binary file.
         /// </param>
@@ -121,15 +120,13 @@ namespace Cake.Warp
         [CakeMethodAlias]
         public static void Warp(
             this ICakeContext context,
-            WarpSettings settings
-        )
+            WarpSettings settings)
         {
             var runner = new WarpRunner(
                 context.FileSystem,
                 context.Environment,
                 context.ProcessRunner,
-                context.Tools
-            );
+                context.Tools);
             runner.Run(settings);
         }
     }

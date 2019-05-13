@@ -1,8 +1,19 @@
+## 0.2.0 (2019-05-13)
+
+
+As part of this release we had [3 issues](https://github.com/cake-contrib/Cake.Warp/milestone/2?closed=1) closed.
+A cake compatibility update release
+
+__Breaking Changes__
+
+- [__#19__](https://github.com/cake-contrib/Cake.Warp/pull/19) Bump Cake.Core from 0.28.0 to 0.33.0
+- [__#14__](https://github.com/cake-contrib/Cake.Warp/issues/14) Update Cake.Core to 0.33.0
 ## 0.1.0 (2019-05-13)
 
 
 As part of this release we had [11 issues](https://github.com/cake-contrib/Cake.Warp/milestone/1?closed=1) closed.
-The first public release of Cake.Warp
+
+This is the first public release of Cake.Warp.
 
 __Enhancement__
 

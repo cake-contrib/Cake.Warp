@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+        <LangVersion>7.3</LangVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <RunCodeAnalysis>true</RunCodeAnalysis>
+        <CodeAnalysisRuleSet>Cake.Warp.ruleset</CodeAnalysisRuleSet>
+        <NeutralLanguage>en-GB</NeutralLanguage>
+        <AssemblyTitle>Cake Warp addin</AssemblyTitle>
+    </PropertyGroup>
+    <PropertyGroup>
+        <!-- I am lazy, no don't want to update the year every time a new year
+             comes around -->
+        <StartYear>2019</StartYear>
+        <EndYear>$([System.DateTime]::Now.Year)</EndYear>
+        <FullYear Condition="'$(StartYear)'=='$(EndYear)'">$(StartYear)</FullYear>
+        <FullYear Condition="'$(StartYear)'!='$(EndYear)'">$(StartYear)-$(EndYear)</FullYear>
+
+        <!-- Properties related to packaging -->
+        <Title>$(AssemblyTitle)</Title>
+        <Authors>Kim J. Nordmo;cake-contrib</Authors>
+        <Copyright>Copyright © $(FullYear) - $(Authors)</Copyright>
+        <Description>Cake addin for creating self-contained single binary applications using [warp](https://github.com/dgiagio/warp).
+        </Description>
+        <IncludeContentInPack>false</IncludeContentInPack>
+        <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@49c3b71def749b86416d773f1ead0c0da2d590ea/png/cake-contrib-medium.png</PackageIconUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://cake-contrib.github.io/Cake.Warp/</PackageProjectUrl>
+        <PackageTags>cake;addin;warp;self-contained</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/cake-contrib/Cake.Warp.git</RepositoryUrl>
+        <MilestoneReleasePath>$(MSBuildProjectDirectory)/../../BuildArtifacts/MILESTONE.md</MilestoneReleasePath>
+        <PackageReleaseNotes Condition="EXISTS('$(MilestoneReleasePath)')">$([System.IO.File]::ReadAllText("$(MilestoneReleasePath)"))</PackageReleaseNotes>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Cake.Core" Version="0.28.0" PrivateAssets="All" />
+        <PackageReference Include="Fody" Version="5.0.6">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="JetBrains.Annotations" Version="2019.1.1" PrivateAssets="All"/>
+        <PackageReference Include="ModuleInit.Fody" Version="2.0.0" PrivateAssets="All" />
+        <PackageReference Include="Resourcer.Fody" Version="1.7.3" PrivateAssets="All"/>
+        <PackageReference Include="stylecop.analyzers" Version="1.1.118">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <!-- The following reference is only needed to build the library
+             On Windows for the .NET 4.6.1 Framewark -->
+        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)'=='net461' AND '$(OS)'=='Windows_NT'" PrivateAssets="all" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="warp/**/*" />
+    </ItemGroup>
+</Project>

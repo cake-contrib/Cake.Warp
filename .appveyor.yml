@@ -1,0 +1,47 @@
+image:
+  - Ubuntu
+  - Visual Studio 2017
+version: '{build}'
+pull_requests:
+  do_not_increment_build_number: true
+skip_branch_with_pr: true
+configuration: Release
+environment:
+  APPVEYOR_YML_DISABLE_PS_LINUX: true
+
+branches:
+  except:
+    - ci/travis
+    - /^dependabot\/.*/
+
+matrix:
+  fast_finish: true
+
+build: off
+test: off
+deploy: off
+
+build_script:
+  - ps: .\build.ps1 -Target AppVeyor -Configuration $env:CONFIGURATION
+  - sh: ./build.sh --target=AppVeyor --configuration=$CONFIGURATION
+
+
+cache:
+  - 'tools -> recipe.cake,tools/packages.config'
+  - 'src/Cake.Warp/warp -> recipe.cake'
+
+for:
+
+-
+  matrix:
+    only:
+      - image: Ubuntu
+  environment:
+    GITHUB_PASSWORD:
+    MYGET_API_KEY:
+    GITTER_TOKEN:
+    SLACK_TOKEN:
+    TWITTER_CONSUMER_KEY:
+    TWITTER_ACCESS_TOKEN:
+    NUGET_API_KEY:
+    WYAM_ACCESS_TOKEN:

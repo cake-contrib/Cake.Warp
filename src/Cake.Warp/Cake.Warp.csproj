@@ -7,6 +7,8 @@
         <CodeAnalysisRuleSet>Cake.Warp.ruleset</CodeAnalysisRuleSet>
         <NeutralLanguage>en-GB</NeutralLanguage>
         <AssemblyTitle>Cake Warp addin</AssemblyTitle>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
     <PropertyGroup>
         <!-- I am lazy, no don't want to update the year every time a new year

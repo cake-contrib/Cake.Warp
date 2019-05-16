@@ -1,4 +1,6 @@
 #load nuget:?package=Cake.Recipe&version=1.0.0
+#load "./.build/coverlet.cake"
+#load "./.build/codecov.cake"
 
 const string WarpVersion = "0.3.0";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";

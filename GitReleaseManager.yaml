@@ -5,7 +5,7 @@ create:
     You can download this release from
     [nuget](https://nuget.org/packages/Cake.Warp/{milestone}),
     or you can just reference it in a cake build script
-    with `#addin nuget:?package?Cake.Warp&version={milestone}`.
+    with `#addin nuget:?package=Cake.Warp&version={milestone}`.
   footer-includes-milestone: true
   milestone-replace-text: '{milestone}'
 export:

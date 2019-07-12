@@ -4,6 +4,7 @@
 # improvement
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 !.vscode/tasks.json
 
 # User-specific files in Visual Studio

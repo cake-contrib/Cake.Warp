@@ -1,12 +1,12 @@
 # Cake.Warp
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-![GitHub](https://img.shields.io/github/license/cake-contrib/Cake.Warp.svg?style=flat-square)
-[![AppVeyor](https://img.shields.io/appveyor/ci/cakecontrib/cake-warp.svg?logo=AppVeyor&style=flat-square)](https://ci.appveyor.com/project/cakecontrib/cake-warp)
-[![Travis (.org)](https://img.shields.io/travis/cake-contrib/Cake.Warp.svg?logo=travis&style=flat-square)](https://travis-ci.org/cake-contrib/Cake.Warp)
-[![Codecov](https://img.shields.io/codecov/c/github/cake-contrib/Cake.Warp.svg?logo=codecov&style=flat-square)](https://codecov.io/gh/cake-contrib/Cake.Warp)
-[![Nuget](https://img.shields.io/nuget/v/Cake.Warp.svg?logo=nuget&style=flat-square)](https://nuget.org/packages/Cake.Warp)
+[![standard-readme compliant][]][standard-readme]
+[![License][licenseimage]][license]
+[![Appveyor build][appveyorimage]][appveyor]
+[![Travis build][travisimage]][travis]
+[![Codecov Report][codecovimage]][codecov]
+[![NuGet package][nugetimage]][nuget]
 
 > Cake addin for creating self-contained single binary applications using [warp](https://github.com/dgiagio/warp)
 
@@ -14,8 +14,9 @@
 
 - [Install](#install)
 - [Usage](#usage)
-- [Maintainers](#maintainers)
+- [Maintainer](#maintainer)
 - [Contributing](#contributing)
+  - [Contributors](#contributors)
 - [License](#license)
 
 ## Install
@@ -51,27 +52,26 @@ Task("Create-Warp-Binary")
 });
 ```
 
-## Maintainers
+## Maintainer
 
-[@AdmiringWorm](https://github.com/AdmiringWorm)
+[Kim J. Nordmo @AdmiringWorm][maintainer]
 
 ## Contributing
 
-See [the contributing file](CONTRIBUTING.md)!
+Cake.Warp follows the [Contributor Covenant][contrib-covenant] Code of Conduct.
 
-PRs accepted.
+We accept Pull Requests.
+Please see [the contributing file][contributing] for how to contribute to Cake.Warp.
 
-Cake.Warp follows the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct) Code of Conduct.
+Commits to the repository is expected to be signed with a valid GPG key with the contributors email addresses.
 
-Commits to the repository is required to be signed with a valid GPG key with the contributors email addresses.
+Small note: If editing the Readme, please conform to the [standard-readme][] specification.
 
-Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors][] specification. Contributions of any kind welcome!
 
 ### Contributors
+
+Thanks goes to these wonderful people ([emoji key][emoji-key]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
@@ -81,4 +81,22 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## License
 
-MIT © 2019 Kim J. Nordmo
+[MIT License © Kim J. Nordmo][license]
+
+[all-contributors]: https://github.com/all-contributors/all-contributors
+[appveyor]: https://ci.appveyor.com/project/cakecontrib/cake-warp
+[appveyorimage]: https://img.shields.io/appveyor/ci/cakecontrib/cake-warp.svg?logo=appveyor&style=flat-square
+[codecov]: https://codecov.io/gh/cake-contrib/Cake.Warp
+[codecovimage]: https://img.shields.io/codecov/c/github/cake-contrib/Cake.Warp.svg?logo=codecov&style=flat-square
+[contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
+[contributing]: https://github.com/cake-contrib/Cake.Warp/blob/develop/CONTRIBUTING.md
+[emoji-key]: https://allcontributors.org/docs/en/emoji-key
+[maintainer]: https://github.com/AdmiringWorm
+[nuget]: https://nuget.org/packages/Cake.Warp
+[nugetimage]: https://img.shields.io/nuget/v/Cake.Warp.svg?logo=nuget&style=flat-square
+[license]: https://github.com/cake-contrib/Cake.Warp/blob/develop/LICENSE
+[licenseimage]: https://img.shields.io/github/license/cake-contrib/Cake.Warp.svg?style=flat-square
+[standard-readme]: https://github.com/RichardLitt/standard-readme
+[standard-readme compliant]: https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square
+[travis]: https://travis-ci.org/cake-contrib/Cake.Warp
+[travisimage]: https://img.shields.io/travis/cake-contrib/Cake.Warp.svg?logo=travis&style=flat-square

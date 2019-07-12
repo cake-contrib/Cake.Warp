@@ -10,20 +10,20 @@
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+
     <PropertyGroup>
         <!-- I am lazy, no don't want to update the year every time a new year
              comes around -->
         <StartYear>2019</StartYear>
-        <EndYear>$([System.DateTime]::Now.Year)</EndYear>
+        <EndYear>$([System.DateTime]::Today.Year)</EndYear>
         <FullYear Condition="'$(StartYear)'=='$(EndYear)'">$(StartYear)</FullYear>
         <FullYear Condition="'$(StartYear)'!='$(EndYear)'">$(StartYear)-$(EndYear)</FullYear>
 
         <!-- Properties related to packaging -->
         <Title>$(AssemblyTitle)</Title>
         <Authors>Kim J. Nordmo;cake-contrib</Authors>
-        <Copyright>Copyright © $(FullYear) - $(Authors)</Copyright>
-        <Description>Cake addin for creating self-contained single binary applications using warp (https://github.com/dgiagio/warp).
-        </Description>
+        <Copyright>Copyright © $(FullYear) — $(Authors.Replace(';',','))</Copyright>
+        <Description>Cake addin for creating self-contained single binary applications using  warp (https://github.com/dgiagio/warp)</Description>
         <IncludeContentInPack>false</IncludeContentInPack>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@49c3b71def749b86416d773f1ead0c0da2d590ea/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -33,6 +33,7 @@
         <RepositoryUrl>https://github.com/cake-contrib/Cake.Warp.git</RepositoryUrl>
         <PackageReleaseNotes>https://github.com/cake-contrib/Cake.Warp/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
         <PackageReference Include="Fody" Version="5.1.1">

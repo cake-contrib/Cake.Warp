@@ -3,8 +3,6 @@ dist: xenial
 os:
   - linux
   - osx
-mono: latest
-dotnet: 2.1.603
 
 cache:
   directories:
@@ -23,4 +21,4 @@ branches:
     - /^dependabot\/.*/
 
 script:
-  - ./build.sh
+  - ./build.sh --target=CI

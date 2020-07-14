@@ -55,3 +55,4 @@ config.wyam.*
 
 # Project specific ignore list
 warp/
+.dotnet/

@@ -1,6 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
-#load "./.build/coverlet.cake"
-#load "./.build/codecov.cake"
+#load nuget:https://f.feedz.io/wormiecorp/packages/nuget?package=Cake.Recipe&version=2.0.0-unstable0311&prerelease
 
 const string WarpVersion = "0.3.0";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";
@@ -21,9 +19,7 @@ BuildParameters.SetParameters(context: Context,
                               repositoryName: "Cake.Warp",
                               appVeyorAccountName: "cakecontrib",
                               shouldRunGitVersion: true,
-                              shouldExecuteGitLink: false,
                               shouldRunCodecov: true,
-                              shouldDeployGraphDocumentation: false,
                               shouldRunDotNetCorePack: true,
                               shouldDownloadMilestoneReleaseNotes: true,
                               shouldDownloadFullReleaseNotes: true,

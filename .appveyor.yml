@@ -25,13 +25,14 @@ install:
 - sh: sudo apt-get update && sudo apt-get install -y libgit2-dev
 
 build_script:
-  - ps: .\build.ps1 -Target AppVeyor -Configuration $env:CONFIGURATION
-  - sh: ./build.sh --target=AppVeyor --configuration=$CONFIGURATION
+  - ps: .\build.ps1 --target=CI --configuration=$env:CONFIGURATION
+  - sh: ./build.sh --target=CI --configuration=$CONFIGURATION
 
 
 cache:
-  - 'tools -> recipe.cake,tools/packages.config'
+  - 'tools -> build.cake'
   - 'src/Cake.Warp/warp -> recipe.cake'
+  - '.dotnet -> build.cake'
 
 for:
 

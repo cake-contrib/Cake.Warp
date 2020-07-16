@@ -3,26 +3,33 @@
 <!-- Workaround. Remove once we're targeting the 3.1.300+ SDK
 https://github.com/dotnet/sourcelink/issues/572 -->
 <Project>
-  <PropertyGroup>
-    <!-- Uncomment the following if you want to have pdb files embedded inside a nupkg package -->
-    <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-  </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
-  </ItemGroup>
-  <ItemGroup>
-    <SourceRoot Include="$(NuGetPackageRoot)" />
-  </ItemGroup>
-
-  <Target Name="CoverletGetPathMap"
-          DependsOnTargets="InitializeSourceRootMappedPaths"
-          Returns="@(_LocalTopLevelSourceRoot)"
-          Condition="'$(DeterministicSourcePaths)' == 'true'">
+    <PropertyGroup>
+        <!-- Uncomment the following if you want to have pdb files embedded inside a nupkg package -->
+        <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
+    </PropertyGroup>
     <ItemGroup>
-      <_LocalTopLevelSourceRoot Include="@(SourceRoot)" Condition="'%(SourceRoot.NestedRoot)' == ''"/>
+        <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
     </ItemGroup>
-  </Target>
+    <ItemGroup>
+        <SourceRoot Include="$(NuGetPackageRoot)" />
+    </ItemGroup>
+
+    <Target Name="CoverletGetPathMap"
+            DependsOnTargets="InitializeSourceRootMappedPaths"
+            Returns="@(_LocalTopLevelSourceRoot)"
+            Condition="'$(DeterministicSourcePaths)' == 'true'">
+        <ItemGroup>
+            <_LocalTopLevelSourceRoot Include="@(SourceRoot)" Condition="'%(SourceRoot.NestedRoot)' == ''"/>
+        </ItemGroup>
+    </Target>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
 </Project>

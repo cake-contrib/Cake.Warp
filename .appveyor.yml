@@ -25,8 +25,8 @@ install:
 - sh: sudo apt-get update && sudo apt-get install -y libgit2-dev
 
 build_script:
-  - ps: .\build.ps1 --target=CI --configuration=$env:CONFIGURATION
-  - sh: ./build.sh --target=CI --configuration=$CONFIGURATION
+  - ps: .\build.ps1 --target=CI --configuration=$env:CONFIGURATION --verbosity=Diagnostic
+  - sh: ./build.sh --target=CI --configuration=$CONFIGURATION --verbosity=Diagnostic
 
 
 cache:
@@ -40,12 +40,21 @@ for:
   matrix:
     only:
       - image: Ubuntu
+  # We blank out the following environment variables
+  # as we do not want these tasks to be run on
+  # the ubuntu image.
   environment:
     GITHUB_PASSWORD:
+    GITHUB_TOKEN:
     MYGET_API_KEY:
+    NUGET_API_KEY:
+    AZURE_PASSWORD:
+    GPR_PASSWORD:
     GITTER_TOKEN:
     SLACK_TOKEN:
     TWITTER_CONSUMER_KEY:
     TWITTER_ACCESS_TOKEN:
-    NUGET_API_KEY:
+    TWITTER_ACCESS_TOKEN_SECRET:
+    EMAIL_SMTPHOST:
+    TRANSIFEX_API_TOKEN:
     WYAM_ACCESS_TOKEN:

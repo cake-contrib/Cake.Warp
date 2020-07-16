@@ -1,4 +1,4 @@
-#load nuget:https://f.feedz.io/wormiecorp/packages/nuget?package=Cake.Recipe&version=2.0.0-unstable0312&prerelease
+#load nuget:https://f.feedz.io/wormiecorp/packages/nuget?package=Cake.Recipe&version=2.0.0-unstable0314&prerelease
 
 const string WarpVersion = "0.3.0";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";

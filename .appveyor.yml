@@ -26,7 +26,11 @@ install:
 - sh: sudo apt-get update && sudo apt-get install -y libgit2-dev
 
 build_script:
-  - ps: .\build.ps1 --target=CI --configuration=$env:CONFIGURATION --verbosity=Diagnostic
+  - ps: |
+      .\build.ps1 --target=CI --configuration=$env:CONFIGURATION --verbosity=Diagnostic
+      if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+      }
   - sh: ./build.sh --target=CI --configuration=$CONFIGURATION --verbosity=Diagnostic
 
 

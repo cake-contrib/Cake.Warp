@@ -8,6 +8,7 @@ skip_branch_with_pr: true
 configuration: Release
 environment:
   APPVEYOR_YML_DISABLE_PS_LINUX: true
+  MYGET_API_KEY: # We do not want to use myget, due to errors regarding size
 
 branches:
   except:
@@ -46,7 +47,6 @@ for:
   environment:
     GITHUB_PASSWORD:
     GITHUB_TOKEN:
-    MYGET_API_KEY:
     NUGET_API_KEY:
     AZURE_PASSWORD:
     GPR_PASSWORD:

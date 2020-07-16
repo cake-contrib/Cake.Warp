@@ -30,9 +30,9 @@ build_script:
 
 
 cache:
-  - 'tools -> build.cake'
+  - 'tools -> build.config,recipe.cake'
   - 'src/Cake.Warp/warp -> recipe.cake'
-  - '.dotnet -> build.cake'
+  - '.dotnet -> build.config'
 
 for:
 

@@ -52,4 +52,8 @@ Task("Download-Warp")
     }
 });
 
+Task("Build-Releasenotes")
+    .IsDependentOn(BuildParameters.Tasks.CreateReleaseNotesTask)
+    .IsDependentOn(BuildParameters.Tasks.ExportReleaseNotesTask);
+
 Build.RunDotNetCore();

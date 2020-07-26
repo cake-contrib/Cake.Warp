@@ -5,7 +5,6 @@ image:
 matrix:
   fast_finish: true
 environment:
-  APPVEYOR_YML_DISABLE_PS_LINUX: true
   MYGET_API_KEY:
 branches:
   except:
@@ -46,7 +45,7 @@ build: off
 test: off
 
 build_script:
-  - pwsh: ./build.ps1 --target=CI --verbosity=Diagnostic
+  - ps: ./build.ps1 --target=CI --verbosity=Diagnostic
 
 cache:
   - "tools -> build.config,recipe.cake"

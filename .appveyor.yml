@@ -41,7 +41,6 @@ for:
 
 install:
   - git submodule update --init
-  - cmd: cinst transifex-client
 
 build: off
 test: off

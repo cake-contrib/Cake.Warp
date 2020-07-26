@@ -22,7 +22,6 @@
         <Authors>Kim J. Nordmo;cake-contrib</Authors>
         <Copyright>Copyright © $(FullYear) — $(Authors.Replace(';',','))</Copyright>
         <Description>Cake addin for creating self-contained single binary applications using  warp (https://github.com/dgiagio/warp)</Description>
-        <IncludeContentInPack>false</IncludeContentInPack>
         <PackageIcon>cake-contrib-small.png</PackageIcon>
         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics@49c3b71def749b86416d773f1ead0c0da2d590ea/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -67,5 +66,6 @@
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="warp/**/*" />
+        <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
     </ItemGroup>
 </Project>

@@ -50,5 +50,6 @@ build_script:
   - pwsh: ./build.ps1 --target=ContinuousIntegration --verbosity=Diagnostic
 
 cache:
-  - "tools -> build.config,setup.cake"
+  - "tools -> build.config,recipe.cake"
   - ".dotnet -> build.config"
+  - "src/Cake.Warp/warp -> recipe.cake"

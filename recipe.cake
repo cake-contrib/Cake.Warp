@@ -1,8 +1,8 @@
 #load nuget:https://f.feedz.io/wormiecorp/packages/nuget?package=Cake.Recipe&version=2.0.0-unstable0314&prerelease
 
-const string WarpVersion = "0.3.0";
+const string WarpVersion = "0.4.3";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";
-const string baseDownloadFormat = "https://github.com/dgiagio/warp/releases/download/v" + WarpVersion + "/{0}.warp-packer";
+const string baseDownloadFormat = "https://github.com/fintermobilityas/warp/releases/download/v" + WarpVersion + "/{0}.warp-packer";
 readonly string[] downloadUrls = {
     string.Format(baseDownloadFormat, "linux-x64"),
     string.Format(baseDownloadFormat, "macos-x64"),

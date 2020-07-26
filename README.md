@@ -8,7 +8,7 @@
 [![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
 
-> Cake addin for creating self-contained single binary applications using [warp](https://github.com/dgiagio/warp)
+> Cake addin for creating self-contained single binary applications using [warp](https://github.com/fintermobilityas/warp)
 
 ## Table of Contents
 

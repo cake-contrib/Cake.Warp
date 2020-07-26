@@ -1,64 +1,54 @@
 image:
+  #    - macos
   - Ubuntu
   - Visual Studio 2017
-version: '{build}'
-pull_requests:
-  do_not_increment_build_number: true
-skip_branch_with_pr: true
-configuration: Release
+matrix:
+  fast_finish: true
 environment:
   APPVEYOR_YML_DISABLE_PS_LINUX: true
-  MYGET_API_KEY: # We do not want to use myget, due to errors regarding size
-
 branches:
   except:
     - ci/travis
-    - /^dependabot\/.*/
-
-matrix:
-  fast_finish: true
-
-build: off
-test: off
-deploy: off
-
-install:
-- sh: sudo apt-get update && sudo apt-get install -y libgit2-dev
-
-build_script:
-  - ps: |
-      .\build.ps1 --target=CI --configuration=$env:CONFIGURATION --verbosity=Diagnostic
-      if ($LASTEXITCODE -ne 0) {
-        exit $LASTEXITCODE
-      }
-  - sh: ./build.sh --target=CI --configuration=$CONFIGURATION --verbosity=Diagnostic
-
-
-cache:
-  - 'tools -> build.config,recipe.cake'
-  - 'src/Cake.Warp/warp -> recipe.cake'
-  - '.dotnet -> build.config'
+    - /dependabot\/.*/
+skip_commits:
+  files:
+    - "*.md"
+    - "LICENSE"
+    - ".travis.yml"
 
 for:
-
 -
   matrix:
     only:
       - image: Ubuntu
-  # We blank out the following environment variables
-  # as we do not want these tasks to be run on
-  # the ubuntu image.
   environment:
+    AZURE_SOURCE:
     GITHUB_PASSWORD:
-    GITHUB_TOKEN:
-    NUGET_API_KEY:
-    AZURE_PASSWORD:
-    GPR_PASSWORD:
     GITTER_TOKEN:
+    GPR_SOURCE:
+    MYGET_API_KEY:
+    NUGET_API_KEY:
     SLACK_TOKEN:
-    TWITTER_CONSUMER_KEY:
     TWITTER_ACCESS_TOKEN:
-    TWITTER_ACCESS_TOKEN_SECRET:
-    EMAIL_SMTPHOST:
-    TRANSIFEX_API_TOKEN:
+    TWITTER_CONSUMER_KEY:
     WYAM_ACCESS_TOKEN:
+
+  skip_tags: true
+  install:
+    - git submodule update --init
+    - sudo apt-get update || echo "Update failed, ignoring..."
+    - sudo apt-get install -y libgit2-dev
+
+install:
+  - git submodule update --init
+  - cmd: cinst transifex-client
+
+build: off
+test: off
+
+build_script:
+  - pwsh: ./build.ps1 --target=ContinuousIntegration --verbosity=Diagnostic
+
+cache:
+  - "tools -> build.config,setup.cake"
+  - ".dotnet -> build.config"

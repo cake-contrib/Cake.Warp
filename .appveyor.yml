@@ -6,6 +6,7 @@ matrix:
   fast_finish: true
 environment:
   APPVEYOR_YML_DISABLE_PS_LINUX: true
+  MYGET_API_KEY:
 branches:
   except:
     - ci/travis
@@ -26,7 +27,6 @@ for:
     GITHUB_PASSWORD:
     GITTER_TOKEN:
     GPR_SOURCE:
-    MYGET_API_KEY:
     NUGET_API_KEY:
     SLACK_TOKEN:
     TWITTER_ACCESS_TOKEN:

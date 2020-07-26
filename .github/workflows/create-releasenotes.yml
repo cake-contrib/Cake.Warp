@@ -3,9 +3,9 @@ name: Create Milestone Release Notes
 on:
   push:
     branches:
-      - "release/**"
+      - 'release/**'
     paths-ignore:
-      - "*.md"
+      - '*.md'
 
 jobs:
   creation:

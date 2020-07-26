@@ -13,14 +13,14 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  steps:
-    - uses: actions/checkout@v2.2.0
-      with:
-        fetch-depth: 0
-    - name: Build Release Notes
-      run: ./build.sh --target=Build-ReleaseNotes
-    - name: Commit Chagelog
-      uses: EndBug/add-and-commit@v4.2.0
-      with:
-        add: Changelog.md
-        message: "docs: Update changelog"
+    steps:
+      - uses: actions/checkout@v2.2.0
+        with:
+          fetch-depth: 0
+      - name: Build Release Notes
+        run: ./build.sh --target=Build-ReleaseNotes
+      - name: Commit Chagelog
+        uses: EndBug/add-and-commit@v4.2.0
+        with:
+          add: Changelog.md
+          message: "docs: Update changelog"

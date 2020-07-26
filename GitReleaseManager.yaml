@@ -7,24 +7,36 @@ create:
     or you can just reference it in a cake build script
     with `#addin nuget:?package=Cake.Warp&version={milestone}`.
   footer-includes-milestone: true
-  milestone-replace-text: '{milestone}'
+  milestone-replace-text: "{milestone}"
+  include-sha-section: true
 export:
   include-created-date-in-title: true
   created-date-string-format: yyyy-MM-dd
   perform-regex-removal: true
   regex-text: '[\r\n]*### Where to get it[\r\n]*You can .*`\.[\r\n]*'
   multiline-regex: true
+close:
+  use-issue-comments: true
+  issue-comment: |-
+    :tada: This issue has been resolved in version {milestone} :tada:
+
+    The release can be downloaded from:
+
+    - [GitHub release](https://github.com/{owner}/{repository}/releases/tag/{milestone})
+    - [NuGet.org](https://nuget.org/packages/{repository}/{milestone})
+    - Within Cake script: `#addin "nuget:?package={repository}&version={milestone}"
+
+    Your friendly **[GitReleaseManager](https://github.com/GitTools/GitReleaseManager)** bot :package::rocket:
 issue-labels-include:
   - Breaking Change
   - Bug
   - Enhancement
   - Feature
   - Documentation
-
 issue-labels-exclude:
   - Build
   - Internal / Refactoring
 issue-labels-alias:
-  - name:    Documentation
-    header:  Documentation
-    plural:  Documentation
+  - name: Documentation
+    header: Documentation
+    plural: Documentation

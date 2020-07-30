@@ -57,9 +57,15 @@ namespace Cake.Warp.IntegrationTests
             TestName = "Should_Not_Have_Saved_Incorrect_Platform_Executable_To_Assembly_Path")]
         public bool Should_Have_Saved_Correct_Executable_To_Assembly_Path(string runnerName)
         {
+            var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
+
+            if (File.Exists(expectedPath))
+            {
+                File.Delete(expectedPath);
+            }
+
             AddinInitializer.Initialize();
             // The file should have been saved to path already in the setup method
-            var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
 
             return File.Exists(expectedPath);
         }

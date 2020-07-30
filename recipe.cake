@@ -55,6 +55,8 @@ Task("Download-Warp")
 });
 
 Task("Build-Releasenotes")
+    .IsDependentOn("Show-Info")
+    .IsDependentOn("Print-CI-Provider-Environment-Variables")
     .IsDependentOn(BuildParameters.Tasks.CreateReleaseNotesTask)
     .IsDependentOn(BuildParameters.Tasks.ExportReleaseNotesTask);
 

@@ -35,7 +35,7 @@ namespace Cake.Warp
     /// Module class responsible for the logic needed
     /// to run when the library is loaded.
     /// </summary>
-    public static class ModuleInitializer
+    public static class AddinInitializer
     {
         /// <summary>
         /// The actual method that will be called during

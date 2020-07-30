@@ -31,14 +31,15 @@ namespace Cake.Warp.IntegrationTests
 
     [TestFixture]
     [Category("Integration")]
-    public class ModuleInitializerTests
+    [Parallelizable(ParallelScope.Fixtures)]
+    public class AddinInitializerTests
     {
         private string addinAssemblyDirectory;
 
         [SetUp]
         public void SetAddinAssemblyDirectory()
         {
-            string directory = typeof(ModuleInitializer).Assembly.Location;
+            string directory = typeof(AddinInitializer).Assembly.Location;
             var attr = File.GetAttributes(directory);
             if ((attr & FileAttributes.Directory) != FileAttributes.Directory)
             {
@@ -56,6 +57,7 @@ namespace Cake.Warp.IntegrationTests
             TestName = "Should_Not_Have_Saved_Incorrect_Platform_Executable_To_Assembly_Path")]
         public bool Should_Have_Saved_Correct_Executable_To_Assembly_Path(string runnerName)
         {
+            AddinInitializer.Initialize();
             // The file should have been saved to path already in the setup method
             var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
 

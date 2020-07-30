@@ -62,7 +62,7 @@ namespace Cake.Warp.Common
         /// </summary>
         /// <notes>
         ///   This should/will be set in the
-        ///   <see cref="ModuleInitializer.Initialize" />
+        ///   <see cref="AddinInitializer.Initialize" />
         ///   during library loading.
         /// </notes>
         public string WarpFilePath { get; set; }

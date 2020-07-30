@@ -146,6 +146,8 @@ namespace Cake.Warp
             this ICakeContext context,
             WarpSettings settings)
         {
+            AddinInitializer.Initialize();
+
             var runner = new WarpRunner(
                 context.FileSystem,
                 context.Environment,

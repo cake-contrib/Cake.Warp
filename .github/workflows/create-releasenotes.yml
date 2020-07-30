@@ -3,9 +3,9 @@ name: Create Milestone Release Notes
 on:
   push:
     branches:
-      - 'release/**'
+      - "release/**"
     paths-ignore:
-      - '*.md'
+      - "*.md"
 
 jobs:
   creation:
@@ -24,3 +24,7 @@ jobs:
         with:
           add: Changelog.md
           message: "docs: Update changelog"
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

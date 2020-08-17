@@ -40,7 +40,6 @@ for:
 
 install:
   - git submodule update --init
-  - cmd: choco install codecov
 
 build: off
 test: off

@@ -36,8 +36,7 @@ ToolSettings.SetToolSettings(context: Context,
         "**/*.Demo/**/*.cs",
         "**/*.AssemblyInfo.cs"
     },
-    testCoverageFilter: "+[Cake.Warp*]* -[*Tests]*");
-ToolSettings.SetToolPreprocessorDirectives(
+    testCoverageFilter: "+[Cake.Warp*]* -[*Tests]*",
     codecovGlobalTool: "");
 
 // TODO: Add a task to publish Demo project,

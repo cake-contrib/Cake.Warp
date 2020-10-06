@@ -1,9 +1,14 @@
 {
     "recommendations": [
-        "ms-vscode.csharp",
-        "jchannon.csharpextensions",
         "cake-build.cake-vscode",
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
         "editorconfig.editorconfig",
-        "davidanson.vscode-markdownlint"
+        "esbenp.prettier-vscode",
+        "fudge.auto-using",
+        "jchannon.csharpextensions",
+        "knisterpeter.vscode-commitizen",
+        "ms-dotnettools.csharp",
+        "vscode-icons-team.vscode-icons"
     ]
 }

@@ -12,6 +12,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
+        <ReleaseNotesPath>$(MSBuildThisFileDirectory)/../../tools/RELEASE_NOTES.txt</ReleaseNotesPath>
         <!-- I am lazy, so I don't want to update the year every time a new year
              comes around -->
         <StartYear>2019</StartYear>
@@ -32,8 +33,6 @@
         <RepositoryType>git</RepositoryType>
         <PackageSourceProjectUrl>https://github.com/cake-contrib/Cake.Warp</PackageSourceProjectUrl>
         <RepositoryUrl>$(PackageSourceProjectUrl).git</RepositoryUrl>
-        <PackageReleaseNotes Condition=" '$(Version)' == '$(FileVersion)'">All release notes for $(AssemblyName) can be found on our GitHub release page - $(PackageSourceProjectUrl)/releases/tag/$(Version)</PackageReleaseNotes>
-        <PackageReleaseNotes Condition=" '$(Version)' != '$(FileVersion)'">Development releases do not contain release notes, please see the closed issues in these cases - $(PackageSourceProjectUrl)/issues?q=milestone:$(FileVersion)+is:closed</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -65,10 +64,20 @@
         </PackageReference>
         <!-- The following reference is only needed to build the library
              On Windows for the .NET 4.6.1 Framewark -->
-        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)'=='net461'" PrivateAssets="all" />
+        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)'=='net461' AND '$(OS)'=='Windows_NT'" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="warp/**/*" />
         <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
     </ItemGroup>
+
+    <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec" Condition="Exists('$(ReleaseNotesPath)')">
+        <ReadLinesFromFile File="$(ReleaseNotesPath)">
+            <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+        </ReadLinesFromFile>
+    </Target>
+
+    <PropertyGroup>
+        <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
 </Project>

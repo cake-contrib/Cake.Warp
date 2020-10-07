@@ -1,11 +1,12 @@
 image:
   #    - macos
   - Ubuntu
-  - Visual Studio 2017
+  - Visual Studio 2019
 matrix:
   fast_finish: true
 environment:
   MYGET_API_KEY:
+  GPR_SOURCE:
 branches:
   except:
     - ci/travis
@@ -48,6 +49,5 @@ build_script:
   - ps: ./build.ps1 --target=CI --verbosity=Diagnostic
 
 cache:
-  - "tools -> build.config,recipe.cake"
-  - ".dotnet -> build.config"
+  - "tools -> recipe.cake,.build/versioning.cake"
   - "src/Cake.Warp/warp -> recipe.cake"

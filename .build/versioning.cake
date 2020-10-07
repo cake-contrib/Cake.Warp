@@ -6,15 +6,8 @@ public class BuildVersionWrapper
 {
     public int Commits { get; set; }
     public string FullSemVer { get; set; }
-    public int Major { get; set; }
     public string MajorMinorPatch { get; set; }
-    public string Metadata { get; set; }
-    public int Minor { get; set; }
-    public int Patch { get; set; }
-    public string PreReleaseLable { get; set; }
-    public string PreReleaseTag { get; set; }
     public string SemVer { get; set; }
-    public int Weight { get; set; }
 }
 
 public class BuildDataWrapper

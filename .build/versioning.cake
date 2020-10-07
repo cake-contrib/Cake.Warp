@@ -1,4 +1,4 @@
-#tool dotnet:?package=dotnet-ccvarn&version=1.0.1
+#tool dotnet:?package=dotnet-ccvarn&version=1.1.1
 #addin nuget:?package=Newtonsoft.Json&version=12.0.3
 #addin nuget:?package=Cake.Json&version=5.2.0
 

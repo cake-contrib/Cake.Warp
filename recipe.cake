@@ -1,8 +1,12 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#define CUSTOM_VERSIONING
+#load ./.build/versioning.cake
+#load nuget:?package=Cake.Recipe&version=2.0.0
+#load ./.build/release-notes.cake
+#load ./.build/codecov.cake
 
-const string WarpVersion = "0.3.0";
+const string WarpVersion = "0.4.3";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";
-const string baseDownloadFormat = "https://github.com/dgiagio/warp/releases/download/v" + WarpVersion + "/{0}.warp-packer";
+const string baseDownloadFormat = "https://github.com/fintermobilityas/warp/releases/download/v" + WarpVersion + "/{0}.warp-packer";
 readonly string[] downloadUrls = {
     string.Format(baseDownloadFormat, "linux-x64"),
     string.Format(baseDownloadFormat, "macos-x64"),
@@ -18,14 +22,13 @@ BuildParameters.SetParameters(context: Context,
                               repositoryOwner: "cake-contrib",
                               repositoryName: "Cake.Warp",
                               appVeyorAccountName: "cakecontrib",
-                              shouldRunGitVersion: true,
-                              shouldExecuteGitLink: false,
+                              shouldBuildNugetSourcePackage: true,
                               shouldRunCodecov: true,
-                              shouldDeployGraphDocumentation: false,
+                              shouldRunCoveralls: false,
                               shouldRunDotNetCorePack: true,
-                              shouldDownloadMilestoneReleaseNotes: true,
-                              shouldDownloadFullReleaseNotes: true,
-                              fullReleaseNotesFilePath: "./CHANGELOG.md");
+                              shouldDownloadMilestoneReleaseNotes: false,
+                              milestoneReleaseNotesFilePath: "./tools/RELEASE_NOTES.txt",
+                              fullReleaseNotesFilePath: "./tools/RELEASE_NOTES.md"); // Just a hack
 
 BuildParameters.PrintParameters(Context);
 BuildParameters.Tasks.ExportReleaseNotesTask.IsDependentOn("Clean");
@@ -53,5 +56,7 @@ Task("Download-Warp")
         DownloadFile(url, fullFilePath);
     }
 });
+
+BuildParameters.Tasks.DotNetCoreBuildTask.IsDependentOn(BuildParameters.Tasks.CreateReleaseNotesTask);
 
 Build.RunDotNetCore();

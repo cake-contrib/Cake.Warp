@@ -1,3 +1,27 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2019-2020 Kim J. Nordmo and Contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 namespace Cake.Warp.IntegrationTests
 {
     using System;
@@ -7,14 +31,15 @@ namespace Cake.Warp.IntegrationTests
 
     [TestFixture]
     [Category("Integration")]
-    public class ModuleInitializerTests
+    [Parallelizable(ParallelScope.Fixtures)]
+    public class AddinInitializerTests
     {
         private string addinAssemblyDirectory;
 
         [SetUp]
         public void SetAddinAssemblyDirectory()
         {
-            string directory = typeof(ModuleInitializer).Assembly.Location;
+            string directory = typeof(AddinInitializer).Assembly.Location;
             var attr = File.GetAttributes(directory);
             if ((attr & FileAttributes.Directory) != FileAttributes.Directory)
             {
@@ -32,8 +57,15 @@ namespace Cake.Warp.IntegrationTests
             TestName = "Should_Not_Have_Saved_Incorrect_Platform_Executable_To_Assembly_Path")]
         public bool Should_Have_Saved_Correct_Executable_To_Assembly_Path(string runnerName)
         {
-            // The file should have been saved to path already in the setup method
             var expectedPath = Path.Combine(this.addinAssemblyDirectory, runnerName);
+
+            if (File.Exists(expectedPath))
+            {
+                File.Delete(expectedPath);
+            }
+
+            AddinInitializer.Initialize();
+            // The file should have been saved to path already in the setup method
 
             return File.Exists(expectedPath);
         }

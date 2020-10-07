@@ -1,0 +1,20 @@
+{
+  "generator-cake-addin": {
+    "promptValues": {
+      "projectName": "Warp",
+      "repositoryOwner": "cake-contrib",
+      "projectMaintainer": "AdmiringWorm",
+      "author": "Kim J. Nordmo",
+      "description": "Cake addin for creating self-contained single binary applications using [warp](https://github.com/fintermobilityas/warp)",
+      "licenseType": "MIT",
+      "sourceDir": "./src",
+      "scriptName": "recipe.cake",
+      "enableAllContributors": true,
+      "enableWyam": true,
+      "enableTravis": true,
+      "useTabs": false,
+      "indentSize": 4,
+      "indentYamlSize": 2
+    }
+  }
+}

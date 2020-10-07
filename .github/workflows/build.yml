@@ -1,0 +1,22 @@
+name: Build project
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    env:
+      NUGET_SOURCE: https://f.feedz.io/wormiecorp/packages/nuget/index.json
+      NUGET_API_KEY: ${{ secrets.FEEDZ_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Build project
+        run: ./build.ps1 --target=CI
+        shell: pwsh

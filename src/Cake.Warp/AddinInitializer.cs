@@ -1,3 +1,27 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2019-2020 Kim J. Nordmo and Contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 namespace Cake.Warp
 {
     using System;
@@ -11,7 +35,7 @@ namespace Cake.Warp
     /// Module class responsible for the logic needed
     /// to run when the library is loaded.
     /// </summary>
-    public static class ModuleInitializer
+    public static class AddinInitializer
     {
         /// <summary>
         /// The actual method that will be called during
@@ -44,11 +68,11 @@ namespace Cake.Warp
             }
 
             using (var resourceStream = GetWarpResource())
-                using (var fileStream = File.Create(fullPathToFile))
-                {
-                    // Is there perhaps a better way, than doing this
-                    resourceStream.CopyTo(fileStream);
-                }
+            using (var fileStream = File.Create(fullPathToFile))
+            {
+                // Is there perhaps a better way, than doing this
+                resourceStream.CopyTo(fileStream);
+            }
 
             if (!AddinConfiguration.Instance.IsWindows)
             {

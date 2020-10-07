@@ -22,4 +22,4 @@ branches:
     - /^dependabot\/.*/
 
 script:
-  - ./build.sh --target=CI
+  - ./build.sh --target=CI --verbosity=Diagnostic

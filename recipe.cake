@@ -1,4 +1,8 @@
+#define CUSTOM_VERSIONING
+#load ./.build/versioning.cake
 #load nuget:?package=Cake.Recipe&version=2.0.0
+#load ./.build/release-notes.cake
+#load ./.build/codecov.cake
 
 const string WarpVersion = "0.4.3";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";
@@ -22,9 +26,9 @@ BuildParameters.SetParameters(context: Context,
                               shouldRunCodecov: true,
                               shouldRunCoveralls: false,
                               shouldRunDotNetCorePack: true,
-                              shouldDownloadMilestoneReleaseNotes: true,
-                              shouldDownloadFullReleaseNotes: true,
-                              fullReleaseNotesFilePath: "./CHANGELOG.md");
+                              shouldDownloadMilestoneReleaseNotes: false,
+                              milestoneReleaseNotesFilePath: "./tools/RELEASE_NOTES.txt",
+                              fullReleaseNotesFilePath: "./tools/RELEASE_NOTES.md"); // Just a hack
 
 BuildParameters.PrintParameters(Context);
 BuildParameters.Tasks.ExportReleaseNotesTask.IsDependentOn("Clean");
@@ -53,10 +57,6 @@ Task("Download-Warp")
     }
 });
 
-Task("Build-Releasenotes")
-    .IsDependentOn("Show-Info")
-    .IsDependentOn("Print-CI-Provider-Environment-Variables")
-    .IsDependentOn(BuildParameters.Tasks.CreateReleaseNotesTask)
-    .IsDependentOn(BuildParameters.Tasks.ExportReleaseNotesTask);
+BuildParameters.Tasks.DotNetCoreBuildTask.IsDependentOn(BuildParameters.Tasks.CreateReleaseNotesTask);
 
 Build.RunDotNetCore();

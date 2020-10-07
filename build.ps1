@@ -1,20 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-function Run([string[]]$arguments) {
-	$proc = Start-Process "dotnet" $arguments -PassThru -NoNewWindow
-	Wait-Process -InputObject $proc
+$SCRIPT_NAME = "recipe.cake"
 
-	if ($proc.ExitCode -ne 0) {
-		"Non-Zero exit code ($($proc.ExitCode)), exiting..."
-        exit $proc.ExitCode
-	}
-}
+Write-Host "Restoring .NET Core tools"
+dotnet tool restore
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-Run tool, restore
+Write-Host "Bootstrapping Cake"
+dotnet cake $SCRIPT_NAME --bootstrap
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-Run cake, recipe.cake, --bootstrap
-
-$arguments = @("cake"; "recipe.cake")
-$arguments += @($args)
-
-Run $arguments
+Write-Host "Running Build"
+dotnet cake $SCRIPT_NAME @args
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

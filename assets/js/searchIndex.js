@@ -39,34 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"WarpSettings",
-            content:"WarpSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Warp/api/Cake.Warp/WarpSettings',
-            title:"WarpSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
-            title:"AddinInitializer",
-            content:"AddinInitializer",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Warp/api/Cake.Warp/AddinInitializer',
-            title:"AddinInitializer",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
             title:"WarpAliases",
             content:"WarpAliases",
             description:'',
@@ -80,21 +52,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
-            title:"AddinInitializerTests",
-            content:"AddinInitializerTests",
+            id:1,
+            title:"WarpSettings",
+            content:"WarpSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
-            title:"AddinInitializerTests",
+            url:'/Cake.Warp/api/Cake.Warp/WarpSettings',
+            title:"WarpSettings",
             description:""
         }
     );
     a(
         {
-            id:4,
+            id:2,
             title:"WarpPlatforms",
             content:"WarpPlatforms",
             description:'',
@@ -103,6 +75,34 @@ var searchModule = function() {
         {
             url:'/Cake.Warp/api/Cake.Warp/WarpPlatforms',
             title:"WarpPlatforms",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"AddinInitializer",
+            content:"AddinInitializer",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Warp/api/Cake.Warp/AddinInitializer',
+            title:"AddinInitializer",
+            description:""
+        }
+    );
+    a(
+        {
+            id:4,
+            title:"AddinInitializerTests",
+            content:"AddinInitializerTests",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
+            title:"AddinInitializerTests",
             description:""
         }
     );

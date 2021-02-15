@@ -4,7 +4,7 @@
 #load ./.build/release-notes.cake
 #load ./.build/codecov.cake
 
-const string WarpVersion = "0.4.3";
+const string WarpVersion = "0.4.4";
 DirectoryPath downloadDir = (DirectoryPath)"./src/Cake.Warp/warp";
 const string baseDownloadFormat = "https://github.com/fintermobilityas/warp/releases/download/v" + WarpVersion + "/{0}.warp-packer";
 readonly string[] downloadUrls = {

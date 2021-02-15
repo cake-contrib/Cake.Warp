@@ -67,20 +67,6 @@ var searchModule = function() {
     a(
         {
             id:2,
-            title:"AddinInitializerTests",
-            content:"AddinInitializerTests",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
-            title:"AddinInitializerTests",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"WarpAliases",
             content:"WarpAliases",
             description:'',
@@ -89,6 +75,20 @@ var searchModule = function() {
         {
             url:'/Cake.Warp/api/Cake.Warp/WarpAliases',
             title:"WarpAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"AddinInitializerTests",
+            content:"AddinInitializerTests",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
+            title:"AddinInitializerTests",
             description:""
         }
     );

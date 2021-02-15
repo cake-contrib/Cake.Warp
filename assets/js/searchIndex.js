@@ -39,34 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"WarpPlatforms",
-            content:"WarpPlatforms",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Warp/api/Cake.Warp/WarpPlatforms',
-            title:"WarpPlatforms",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
-            title:"ModuleInitializer",
-            content:"ModuleInitializer",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Warp/api/Cake.Warp/ModuleInitializer',
-            title:"ModuleInitializer",
-            description:""
-        }
-    );
-    a(
-        {
-            id:2,
             title:"WarpSettings",
             content:"WarpSettings",
             description:'',
@@ -80,21 +52,35 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
-            title:"ModuleInitializerTests",
-            content:"ModuleInitializerTests",
+            id:1,
+            title:"AddinInitializer",
+            content:"AddinInitializer",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/ModuleInitializerTests',
-            title:"ModuleInitializerTests",
+            url:'/Cake.Warp/api/Cake.Warp/AddinInitializer',
+            title:"AddinInitializer",
             description:""
         }
     );
     a(
         {
-            id:4,
+            id:2,
+            title:"AddinInitializerTests",
+            content:"AddinInitializerTests",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
+            title:"AddinInitializerTests",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
             title:"WarpAliases",
             content:"WarpAliases",
             description:'',
@@ -103,6 +89,20 @@ var searchModule = function() {
         {
             url:'/Cake.Warp/api/Cake.Warp/WarpAliases',
             title:"WarpAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:4,
+            title:"WarpPlatforms",
+            content:"WarpPlatforms",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Warp/api/Cake.Warp/WarpPlatforms',
+            title:"WarpPlatforms",
             description:""
         }
     );

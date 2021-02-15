@@ -39,28 +39,28 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"WarpAliases",
-            content:"WarpAliases",
+            title:"AddinInitializer",
+            content:"AddinInitializer",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp/WarpAliases',
-            title:"WarpAliases",
+            url:'/Cake.Warp/api/Cake.Warp/AddinInitializer',
+            title:"AddinInitializer",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"WarpSettings",
-            content:"WarpSettings",
+            title:"AddinInitializerTests",
+            content:"AddinInitializerTests",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp/WarpSettings',
-            title:"WarpSettings",
+            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
+            title:"AddinInitializerTests",
             description:""
         }
     );
@@ -81,28 +81,28 @@ var searchModule = function() {
     a(
         {
             id:3,
-            title:"AddinInitializer",
-            content:"AddinInitializer",
+            title:"WarpAliases",
+            content:"WarpAliases",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp/AddinInitializer',
-            title:"AddinInitializer",
+            url:'/Cake.Warp/api/Cake.Warp/WarpAliases',
+            title:"WarpAliases",
             description:""
         }
     );
     a(
         {
             id:4,
-            title:"AddinInitializerTests",
-            content:"AddinInitializerTests",
+            title:"WarpSettings",
+            content:"WarpSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Warp/api/Cake.Warp.IntegrationTests/AddinInitializerTests',
-            title:"AddinInitializerTests",
+            url:'/Cake.Warp/api/Cake.Warp/WarpSettings',
+            title:"WarpSettings",
             description:""
         }
     );
